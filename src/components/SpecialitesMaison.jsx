@@ -4,12 +4,12 @@ import TextReveal from './ui/TextReveal';
 const SpecialitesMaison = () => {
   const specialites = [
     {
-      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop",
-      title: "Le Burger HOME'S",
+      image: "/images/image.png",
+      title: "Le Cheesenan",
       description: "Un classique revisité avec amour, saveurs puissantes et textures généreuses.",
     },
     {
-      image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&h=600&fit=crop",
+      image: "/images/fritehomes.jpg",
       title: "Les Frites Maison",
       description: "Dorées à souhait, croustillantes dehors, fondantes dedans. La simplicité maîtrisée.",
     },
@@ -29,7 +29,7 @@ const SpecialitesMaison = () => {
               Nos Spécialités Maison
             </h2>
           </TextReveal>
-          <TextReveal>
+          <TextReveal delay={0.1}>
             <p className="text-xl text-brown-600 max-w-3xl mx-auto">
               Des plats emblématiques préparés avec soin, passion et authenticité.
             </p>
@@ -53,8 +53,12 @@ const SpecialitesMaison = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brown-900/60 to-transparent"></div>
               <div className="absolute bottom-6 left-6 right-6 text-white">
-                <h3 className="text-2xl font-bold mb-2">{item.title}</h3>
-                <p className="text-sm text-beige-100/90">{item.description}</p>
+                <TextReveal delay={0.1}>
+                  <h3 className="text-2xl font-bold mb-2">{item.title}</h3>
+                </TextReveal>
+                <TextReveal delay={0.2}>
+                  <p className="text-sm text-beige-100/90">{item.description}</p>
+                </TextReveal>
               </div>
             </motion.div>
           ))}

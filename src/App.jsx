@@ -15,6 +15,7 @@ import { MenuTransitionParallax } from "./components/ui/MenuTransitionParallax";
 import IngredientsPremium from './components/IngredientsPremium';
 import AmbianceHomes from './components/AmbianceHomes';
 import SpecialitesMaison from './components/SpecialitesMaison';
+import { TextParallaxContent } from './components/ui/text-parallax-content-scroll';
 
 function App() {
   // Menus best-sellers premium avec prix et badge
@@ -85,11 +86,36 @@ function App() {
     <>
       <Navbar />
       <Hero />
+      <TextParallaxContent
+        imgUrl="/images/image.jpg"
+        subheading="L'Incontournable"
+        heading="HOME'S"
+      >
+        <div className="mx-auto max-w-3xl px-4 pb-16 pt-8 text-center">
+          <p className="text-xl text-brown-700 mb-6">
+            Un burger gourmet, pain brioché doré, steak juteux, fromage fondant et sauce maison. L’essence du premium, à découvrir absolument.
+          </p>
+          <button className="rounded bg-beige-500 px-8 py-3 text-brown-900 font-bold shadow hover:bg-beige-400 transition">
+            Découvrir le menu
+          </button>
+        </div>
+      </TextParallaxContent>
       <MenuTransitionParallax menus={menusVedettes} title="Nos incontournables" />
       <section id="simple-menu"><SimpleMenu /></section>
       <IngredientsPremium />
       <section id="special-menus"><SpecialMenus /></section>
       <AmbianceHomes />
+      <TextParallaxContent
+        imgUrl="/images/home-s-pizza.jpg"
+        subheading="L'Expérience HOME'S"
+        heading="Un lieu vivant, lumineux, unique"
+      >
+        <div className="mx-auto max-w-2xl px-4 pb-16 pt-8 text-center">
+          <p className="text-lg text-brown-600">
+            Profitez d’une atmosphère chaleureuse, d’un service attentionné et d’une décoration élégante pour sublimer chaque moment.
+          </p>
+        </div>
+      </TextParallaxContent>
       <section id="chicken"><Chicken /></section>
 
       <section id="frites"><Frites /></section>

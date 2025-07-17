@@ -32,7 +32,7 @@ const IngredientsPremium = () => {
               Nos Ingrédients Premium
             </h2>
           </TextReveal>
-          <TextReveal>
+          <TextReveal delay={0.1}>
             <p className="text-xl text-brown-600 max-w-3xl mx-auto">
               La qualité de nos plats commence par la sélection rigoureuse de nos ingrédients. 
               Chaque produit raconte une histoire de passion et d'excellence.
@@ -65,28 +65,32 @@ const IngredientsPremium = () => {
                 <div className="relative z-10 p-6 h-full flex flex-col justify-end">
                   {/* Badge */}
                   <div className="mb-4">
-                    <span className="bg-beige-500 text-brown-800 px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
-                      Premium
-                    </span>
+                    <TextReveal delay={0.1}>
+                      <span className="bg-beige-500 text-brown-800 px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
+                        Premium
+                      </span>
+                    </TextReveal>
                   </div>
                   
                   {/* Title and description */}
-                  <TextReveal delay={0.1}>
+                  <TextReveal delay={0.2}>
                     <h3 className="text-2xl font-bold text-white mb-3 drop-shadow-lg">
                       {ingredient.title}
                     </h3>
                   </TextReveal>
-                  <TextReveal delay={0.2}>
+                  <TextReveal delay={0.3}>
                     <p className="text-white/90 leading-relaxed mb-4 drop-shadow-md">
                       {ingredient.description}
                     </p>
                   </TextReveal>
                   
                   {/* Decorative element */}
-                  <div className="flex items-center text-white/80">
-                    <span className="w-8 h-px bg-beige-400 mr-3"></span>
-                    <span className="text-sm font-medium">Sélection rigoureuse</span>
-                  </div>
+                  <TextReveal delay={0.4}>
+                    <div className="flex items-center text-white/80">
+                      <span className="w-8 h-px bg-beige-400 mr-3"></span>
+                      <span className="text-sm font-medium">Sélection rigoureuse</span>
+                    </div>
+                  </TextReveal>
                 </div>
               </div>
             </motion.div>

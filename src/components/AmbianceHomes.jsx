@@ -32,7 +32,7 @@ const AmbianceHomes = () => {
               L'Ambiance HOME'S
             </h2>
           </TextReveal>
-          <TextReveal>
+          <TextReveal delay={0.1}>
             <p className="text-xl text-brown-600 max-w-3xl mx-auto">
               Découvrez l'atmosphère unique qui fait de HOME'S bien plus qu'un restaurant. 
               Un lieu où la gastronomie rencontre la convivialité.
@@ -61,21 +61,23 @@ const AmbianceHomes = () => {
                   
                   {/* Floating badge */}
                   <div className="absolute bottom-4 right-4">
-                    <span className="bg-beige-500/90 backdrop-blur-sm text-brown-800 px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                      HOME'S
-                    </span>
+                    <TextReveal delay={0.1}>
+                      <span className="bg-beige-500/90 backdrop-blur-sm text-brown-800 px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                        HOME'S
+                      </span>
+                    </TextReveal>
                   </div>
                 </div>
               </div>
               
               <div className="lg:w-1/2 space-y-6">
                 <div className="space-y-4">
-                  <TextReveal delay={0.1}>
+                  <TextReveal delay={0.2}>
                     <h3 className="text-3xl font-bold text-brown-800">
                       {item.title}
                     </h3>
                   </TextReveal>
-                  <TextReveal delay={0.2}>
+                  <TextReveal delay={0.3}>
                     <p className="text-lg text-brown-600 leading-relaxed">
                       {item.description}
                     </p>
@@ -83,10 +85,12 @@ const AmbianceHomes = () => {
                 </div>
                 
                 {/* Decorative line */}
-                <div className="flex items-center">
-                  <span className="w-12 h-px bg-beige-400 mr-4"></span>
-                  <span className="text-beige-600 text-sm font-medium">Découvrez notre univers</span>
-                </div>
+                <TextReveal delay={0.4}>
+                  <div className="flex items-center">
+                    <span className="w-12 h-px bg-beige-400 mr-4"></span>
+                    <span className="text-beige-600 text-sm font-medium">Découvrez notre univers</span>
+                  </div>
+                </TextReveal>
               </div>
             </motion.div>
           ))}
