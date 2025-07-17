@@ -12,6 +12,9 @@ import Reviews from './components/Reviews';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import { MenuTransitionParallax } from "./components/ui/MenuTransitionParallax";
+import IngredientsPremium from './components/IngredientsPremium';
+import AmbianceHomes from './components/AmbianceHomes';
+import SpecialitesMaison from './components/SpecialitesMaison';
 
 function App() {
   // Menus best-sellers premium avec prix et badge
@@ -84,11 +87,18 @@ function App() {
       <Hero />
       <MenuTransitionParallax menus={menusVedettes} title="Nos incontournables" />
       <section id="simple-menu"><SimpleMenu /></section>
+      <IngredientsPremium />
       <section id="special-menus"><SpecialMenus /></section>
+      <AmbianceHomes />
       <section id="chicken"><Chicken /></section>
+
       <section id="frites"><Frites /></section>
+      <SpecialitesMaison />
       <section id="drinks"><Drinks /></section>
       <section id="desserts"><Desserts /></section>
+    
+     
+      
       <About />
       <Delivery />
       <Reviews />
