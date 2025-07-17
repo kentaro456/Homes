@@ -1,31 +1,103 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const fries = [
-  { name: 'Frites', image: '/images/double-saveur.jpg', desc: 'Frites', price: '2,00€', popularity: 85, reviews: 449 },
+  { name: 'Frites', image: '/images/frite.png', desc: 'Frites', price: '2,00€', popularity: 85, reviews: 449 },
 ];
 
-const Frites = () => (
-  <section id="frites-section" className="py-20 bg-gray-50 text-gray-800">
-    <div className="max-w-2xl mx-auto px-4">
-      <div className="text-center mb-12">
-        <h2 className="font-serif text-4xl md:text-5xl font-bold text-gold mb-2 drop-shadow">Frites</h2>
-        <div className="mx-auto w-24 h-1 bg-gradient-to-r from-gold to-yellow-300 rounded-full mb-4" />
-        <p className="text-gray-500 text-lg">Nos frites dorées et croustillantes, l’accompagnement parfait.</p>
-      </div>
-      <div className="grid grid-cols-1 gap-8 justify-center">
-        {fries.map((item) => (
-          <div key={item.name} className="bg-white rounded-xl shadow border border-gold/20 p-6 flex flex-col items-center hover:shadow-lg transition group">
-            <img src={item.image} alt={item.name} className="w-32 h-32 object-cover rounded-full mb-4 border-4 border-gold/30 group-hover:scale-105 transition" />
-            <h3 className="font-serif text-xl text-gold font-bold mb-2">{item.name}</h3>
-            <p className="text-gray-600 text-center mb-2">{item.desc}</p>
-            <span className="text-lg font-semibold text-gray-800 mb-2">{item.price}</span>
-            <span className="bg-gold/10 text-gold font-bold px-3 py-1 rounded-full text-xs flex items-center mb-2"><svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>{item.popularity}% ({item.reviews})</span>
-            <button className="px-6 py-2 rounded-full bg-gradient-to-r from-gold to-yellow-300 text-gray-800 font-semibold shadow hover:from-yellow-300 hover:to-gold transition border border-gold/40">Commander</button>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
+const cardVariants = {
+  hidden: { opacity: 0, y: 60 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, delay: 0.6 }
+  }
+};
 
-export default Frites; 
+const Frites = () => {
+  return (
+    <section 
+      id="frites-section" 
+      className="relative py-32 bg-[#0a0a0a] text-[#e5e5e5] overflow-hidden"
+    >
+      {/* Background dark urban avec dégradés */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] via-[#0a0a0a] to-[#1a1a1a]"></div>
+      <div className="absolute inset-0 bg-gradient-radial from-[#d4af37]/8 via-transparent to-transparent"></div>
+      
+      {/* Particules flottantes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/3 left-1/3 w-2 h-2 bg-[#d4af37]/25 rounded-full animate-pulse"></div>
+        <div className="absolute top-2/3 right-1/3 w-1.5 h-1.5 bg-[#d4af37]/20 rounded-full animate-pulse" style={{animationDelay: '1.5s'}}></div>
+        <div className="absolute top-1/2 left-2/3 w-1 h-1 bg-[#d4af37]/30 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+      </div>
+
+      <div className="relative z-10 max-w-4xl mx-auto px-6">
+        <motion.div 
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 1.2, delay: 0.2 }}
+        >
+          <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl font-light text-[#e5e5e5] mb-6 tracking-tight leading-none">
+            <span className="text-[#d4af37]">Frites</span>
+          </h2>
+          <div className="mx-auto w-32 h-px bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mb-8" />
+          <p className="text-gray-400 text-lg md:text-xl font-light tracking-wide max-w-2xl mx-auto leading-relaxed">
+            Nos frites dorées et croustillantes, l'accompagnement parfait pour sublimer vos repas.
+          </p>
+        </motion.div>
+
+        <div className="flex justify-center">
+          {fries.map((item) => (
+            <motion.div 
+              key={item.name} 
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              className="group relative bg-[#1a1a1a]/40 backdrop-blur-lg border border-[#d4af37]/20 rounded-3xl p-10 flex flex-col items-center hover:border-[#d4af37]/40 transition-all duration-500 hover:shadow-2xl hover:shadow-[#d4af37]/10 hover:scale-105 max-w-md w-full"
+            >
+              {/* Glassmorphism overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#d4af37]/8 via-transparent to-[#d4af37]/8 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="relative z-10 flex flex-col items-center w-full">
+                <div className="relative mb-8 group-hover:scale-110 transition-transform duration-500">
+                  <img 
+                    src={item.image} 
+                    alt={item.name} 
+                    className="w-48 h-48 object-cover rounded-full border-2 border-[#d4af37]/30 shadow-xl" 
+                  />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#d4af37]/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute -inset-4 rounded-full bg-[#d4af37]/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+                
+                <h3 className="font-serif text-3xl text-[#d4af37] font-light mb-4 tracking-wide">{item.name}</h3>
+                <p className="text-gray-400 text-center mb-6 font-light leading-relaxed text-lg">{item.desc}</p>
+                
+                <div className="flex flex-col items-center w-full mb-6 space-y-4">
+                  <span className="text-2xl font-medium text-[#e5e5e5]">{item.price}</span>
+                  <span className="bg-[#d4af37]/10 text-[#d4af37] font-medium px-6 py-3 rounded-full text-sm flex items-center border border-[#d4af37]/20">
+                    <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    {item.popularity}% ({item.reviews} avis)
+                  </span>
+                </div>
+                
+                <button className="w-full px-10 py-4 bg-gradient-to-r from-[#d4af37] to-[#f4d76d] text-[#0a0a0a] font-semibold rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#d4af37]/20 transition-all duration-300 transform hover:scale-105 border border-[#d4af37]/30 tracking-wide text-lg">
+                  Commander
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+      
+      {/* Éléments décoratifs dark urban */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none"></div>
+    </section>
+  );
+};
+
+export default Frites;
