@@ -100,7 +100,7 @@ const Hero = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative h-screen w-full overflow-hidden bg-[#0a0a0a] min-h-[600px] max-h-[1200px]"
+      className="relative h-screen w-full overflow-hidden bg-[#0a0a0a] min-h-[600px] max-h-[1200px] sm:w-full w-screen"
     >
       {/* Video Background - Dark Urban Cinematic */}
       <div className="absolute inset-0">
