@@ -53,56 +53,56 @@ const Menu = () => {
     <section 
       id="menu-section"
       ref={sectionRef}
-      className="py-20 bg-black text-white"
+      className="py-12 sm:py-16 md:py-20 bg-black text-white"
     >
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 sm:mb-16">
           <h2 
             ref={titleRef}
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6"
           >
             Nos <span className="text-gold">Spécialités</span>
           </h2>
           
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto px-4">
             Découvrez nos plats signature, préparés avec passion et des ingrédients de qualité premium
           </p>
         </div>
 
         <div 
           ref={cardsRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
         >
           {menuData.featuredItems.map((item, index) => (
             <div 
               key={item.id}
-              className="group relative bg-gray-900 rounded-lg overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:scale-105"
+              className="group relative bg-gray-900 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:scale-105"
             >
-              <div className="relative h-48 bg-gradient-to-br from-gold/20 to-gray-800 overflow-hidden">
+              <div className="relative h-40 sm:h-48 bg-gradient-to-br from-gold/20 to-gray-800 overflow-hidden">
                 <img 
                   src={item.image} 
                   alt={item.name}
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                <div className="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                <div className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-gold text-black px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
                   {item.category}
                 </div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="text-gold font-bold text-2xl mb-1">{item.price}</div>
+                <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4">
+                  <div className="text-gold font-bold text-xl sm:text-2xl mb-1">{item.price}</div>
                 </div>
               </div>
 
-              <div className="p-6">
-                <h3 className="font-serif text-xl font-bold mb-3 group-hover:text-gold transition-colors duration-300">
+              <div className="p-4 sm:p-6">
+                <h3 className="font-serif text-lg sm:text-xl font-bold mb-2 sm:mb-3 group-hover:text-gold transition-colors duration-300">
                   {item.name}
                 </h3>
                 
-                <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+                <p className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">
                   {item.description}
                 </p>
 
-                <button className="w-full bg-gold hover:bg-gold/90 text-black font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105">
+                <button className="w-full bg-gold hover:bg-gold/90 text-black font-semibold py-2 sm:py-3 px-3 sm:px-4 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm sm:text-base">
                   Ajouter au panier
                 </button>
               </div>

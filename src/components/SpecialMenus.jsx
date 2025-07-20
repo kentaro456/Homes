@@ -6,9 +6,7 @@ const specialMenus = [
   { name: "Menu Le Home's Steak", image: "/images/Menu Le Home's Steak.webp", desc: "Pain fromagé maison, steak de bœuf, salade, tomates, oignons, cheddar et sauces au choix. Servi avec des frites et une boisson 33 cl au choix.", price: "10,90€", popularity: 93, reviews: 1080, tag: "Signature" },
   { name: "Menu Le Torticheese", image: "/images/Menu Le Torticheese.webp", desc: "Tortilla, poulet pané, steak de bœuf, salade, cheddar, boursin et sauces au choix. Servi avec des frites et une boisson 33 cl au choix.", price: "10,90€", popularity: 93, reviews: 260, tag: "Fusion" },
   { name: "Menu Le Chicken Roll", image: "/images/Menu Le Chicken Roll.webp", desc: "Tortilla, filet de poulet pané et salade. Servi avec des frites et une boisson 33 cl au choix.", price: "9,50€", popularity: 87, reviews: 208, tag: "Street" },
-  { name: "Menu Le Spécial Steak", image: "/images/Menu Le Spécial Steak.jpeg", desc: "Pain maison, steak de bœuf, salade, tomates, oignons, œuf, cheddar et sauces au choix. Servi avec des frites et une boisson 33 cl au choix.", price: "10,90€", popularity: 93, reviews: 145, tag: "Premium" },
   { name: "Menu Le Spécial Poulet", image: "/images/Menu Le Spécial Poulet.webp", desc: "Pain maison, blanc de poulet, salade, tomates, oignons, œuf, cheddar et sauces au choix. Servi avec des frites et une boisson 33 cl au choix.", price: "10,90€", popularity: 93, reviews: 137, tag: "Premium" },
-  { name: "Menu Le Poulet Cheese", image: "/images/Menu Le Poulet Cheese.webp", desc: "Pain burger, filet de poulet pané, salade, cheddar et mayonnaise. Servi avec des frites et une boisson 33 cl au choix.", price: "9,50€", popularity: 84, reviews: 89, tag: "Classique" },
   { name: "Menu Le Bœuf Burger", image: "/images/Menu Le Bœuf Burger.webp", desc: "Pain burger, 2 steaks de bœuf, salade, cheddar et sauce burger. Servi avec des frites et une boisson 33 cl au choix.", price: "9,50€", popularity: 74, reviews: 86, tag: "Classique" },
   { name: "Menu Le Seekh Roll", image: "/images/Menu Le Seekh Roll.webp", desc: "Tortilla, agneau épicé et salade. Servi avec des frites et une boisson 33 cl au choix.", price: "9,50€", popularity: 84, reviews: 44, tag: "Épicé" },
   { name: "Menu Double Saveur", image: "/images/Menu Double Saveur.webp", desc: "1 burger au choix (poulet ou bœuf) et 5 wings (ailes de poulet épicées). Servi avec des frites et une boisson 33 cl au choix.", price: "10,50€", popularity: 90, reviews: 220, tag: "Mixte" },
@@ -30,7 +28,7 @@ const SpecialMenus = () => {
   return (
     <section 
       id="special-menus-section" 
-      className="py-24 lg:py-32 bg-[#0a0a0a] text-[#e5e5e5] relative overflow-hidden"
+      className="py-16 sm:py-20 lg:py-24 xl:py-32 bg-[#0a0a0a] text-[#e5e5e5] relative overflow-hidden"
     >
       {/* Background texturé dark urban */}
       <div className="absolute inset-0 opacity-20">
@@ -38,10 +36,10 @@ const SpecialMenus = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#d4af37]/5 to-transparent"></div>
       </div>
 
-      <div className="max-w-8xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 lg:mb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <motion.h2 
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-light mb-8 text-[#e5e5e5] tracking-tight leading-none"
+            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-6 sm:mb-8 text-[#e5e5e5] tracking-tight leading-none"
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
@@ -49,75 +47,118 @@ const SpecialMenus = () => {
           >
             Menus <span className="text-[#d4af37] italic">Spéciaux</span>
           </motion.h2>
-          <div className="w-24 h-px mx-auto bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mb-10"></div>
-          <p className="text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-light">
-            Des formules généreuses à partager en famille ou entre amis. L'authenticité halal dans chaque bouchée.
-          </p>
+          <div className="w-16 sm:w-20 lg:w-24 h-px mx-auto bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mb-6 sm:mb-8"></div>
+          <motion.p 
+            className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-light px-4"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 1.2, delay: 0.5 }}
+          >
+            Nos menus complets vous offrent une expérience culinaire complète avec frites et boisson incluses.
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {/* Grille responsive des menus */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
           {specialMenus.map((menu, index) => (
-            <motion.div 
-              key={menu.name} 
-              className="group relative bg-[#1a1a1a]/60 backdrop-blur-lg border border-[#d4af37]/20 hover:border-[#d4af37]/60 transition-all duration-700 overflow-hidden rounded-2xl p-6 flex flex-col items-center hover:shadow-2xl hover:shadow-[#d4af37]/20"
+            <motion.div
+              key={index}
+              custom={index}
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              custom={index}
-              whileHover={{ scale: 1.02, y: -5 }}
+              className="group relative bg-[#1a1a1a]/60 backdrop-blur-lg border border-[#d4af37]/20 hover:border-[#d4af37]/60 rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-700 hover:shadow-2xl hover:shadow-[#d4af37]/20"
             >
-              {/* Tag */}
-              <div className="absolute top-4 right-4 bg-gradient-to-r from-[#d4af37] to-[#f4d76d] text-[#0a0a0a] px-3 py-1 text-xs font-bold tracking-wider uppercase rounded-full">
+              {/* Tag populaire */}
+              <div className="absolute top-3 sm:top-4 left-3 sm:left-4 z-10 bg-gradient-to-r from-[#d4af37] to-[#f4d76d] text-[#0a0a0a] px-2 sm:px-3 py-1 text-xs font-bold tracking-wider uppercase rounded-full">
                 {menu.tag}
               </div>
 
               {/* Image */}
-              <div className="relative mb-6">
-                <motion.img 
-                  src={menu.image} 
-                  alt={menu.name} 
-                  className="w-32 h-32 object-cover rounded-full border-4 border-[#d4af37]/30 group-hover:border-[#d4af37]/60 transition-all duration-500"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.5 }}
+              <div className="relative h-48 sm:h-56 lg:h-64 overflow-hidden">
+                <motion.img
+                  src={menu.image}
+                  alt={menu.name}
+                  className="w-full h-full object-cover brightness-90 contrast-110"
+                  whileHover={{ scale: 1.1, brightness: 1 }}
+                  transition={{ duration: 0.7, ease: "easeOut" }}
                 />
-                <div className="absolute inset-0 bg-[#d4af37]/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent"></div>
+                
+                {/* Stats au survol */}
+                <motion.div 
+                  className="absolute inset-0 bg-[#0a0a0a]/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                >
+                  <div className="text-center text-[#e5e5e5]">
+                    <div className="text-sm sm:text-base lg:text-lg mb-2 font-bold">
+                      ⭐ {menu.popularity}% de satisfaction
+                    </div>
+                    <div className="text-xs sm:text-sm text-gray-300">
+                      📊 {menu.reviews} avis clients
+                    </div>
+                  </div>
+                </motion.div>
               </div>
 
-              {/* Content */}
-              <h3 className="font-serif text-xl font-light text-[#e5e5e5] mb-3 group-hover:text-[#d4af37] transition-colors duration-500 text-center">
-                {menu.name}
-              </h3>
-              <p className="text-gray-400 text-sm text-center mb-4 leading-relaxed line-clamp-3">
-                {menu.desc}
-              </p>
-              <span className="text-2xl font-bold text-[#d4af37] mb-4">{menu.price}</span>
-              
-              {/* Stats */}
-              <div className="flex items-center gap-2 mb-6">
-                <div className="bg-[#d4af37]/20 text-[#d4af37] font-medium px-3 py-1 rounded-full text-xs flex items-center">
-                  <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                  {menu.popularity}% ({menu.reviews})
+              {/* Contenu */}
+              <div className="p-4 sm:p-5 lg:p-6">
+                <div className="flex items-start justify-between mb-3 sm:mb-4">
+                  <h3 className="font-serif text-lg sm:text-xl font-light text-[#e5e5e5] group-hover:text-[#d4af37] transition-colors duration-500 tracking-wide leading-tight flex-1 mr-2">
+                    {menu.name}
+                  </h3>
+                  <div className="text-xl sm:text-2xl font-bold text-[#d4af37]">
+                    {menu.price}
+                  </div>
                 </div>
+                
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 sm:mb-7">
+                  {menu.desc}
+                </p>
+
+                {/* Bouton d'action */}
+                <motion.button 
+                  className="w-full py-3 sm:py-4 bg-gradient-to-r from-[#d4af37] to-[#f4d76d] text-[#0a0a0a] font-bold text-xs sm:text-sm tracking-wide uppercase transition-all duration-500 hover:shadow-lg hover:shadow-[#d4af37]/30 btn-responsive"
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Commander ce menu
+                </motion.button>
               </div>
 
-              {/* Button */}
-              <motion.button 
-                className="mt-auto px-8 py-3 bg-gradient-to-r from-[#d4af37] to-[#f4d76d] text-[#0a0a0a] font-bold text-sm tracking-wide uppercase transition-all duration-500 hover:shadow-lg hover:shadow-[#d4af37]/30 w-full"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Commander
-              </motion.button>
-
-              {/* Hover particles */}
-              <div className="absolute top-4 left-4 w-1 h-1 bg-[#d4af37] rounded-full opacity-0 group-hover:opacity-100 animate-pulse transition-opacity duration-500"></div>
-              <div className="absolute bottom-4 right-8 w-1 h-1 bg-[#d4af37] rounded-full opacity-0 group-hover:opacity-100 animate-pulse transition-opacity duration-700" style={{animationDelay: '0.5s'}}></div>
+              {/* Effet de bordure dorée au survol */}
+              <motion.div 
+                className="absolute inset-0 border-2 border-[#d4af37] opacity-0 pointer-events-none rounded-xl sm:rounded-2xl"
+                animate={{ opacity: 0 }}
+                whileHover={{ opacity: 0.6 }}
+                transition={{ duration: 0.4 }}
+              />
             </motion.div>
           ))}
         </div>
+
+        {/* Call to action */}
+        <motion.div 
+          className="text-center mt-16 sm:mt-20 lg:mt-24"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <p className="text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4">
+            Tous nos menus incluent des frites fraîches et une boisson de votre choix pour une expérience complète.
+          </p>
+          <motion.button
+            className="px-8 sm:px-12 lg:px-16 py-4 sm:py-5 border-2 border-[#d4af37] text-[#d4af37] font-bold text-sm sm:text-base tracking-wide uppercase transition-all duration-500 hover:bg-[#d4af37] hover:text-[#0a0a0a] btn-responsive"
+            whileHover={{ scale: 1.05, y: -3 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Voir tous les menus
+          </motion.button>
+        </motion.div>
       </div>
     </section>
   );

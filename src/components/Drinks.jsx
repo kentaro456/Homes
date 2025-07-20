@@ -10,12 +10,7 @@ const drinks = [
   { name: '7 Up mojito', image: '/images/7up-mojito-33cl.jpg', format: '33cl', price: '1,90€', popularity: 90, reviews: 11 },
   { name: '7 Up cherry', image: '/images/7upcherry.webp', format: '33cl', price: '1,90€', popularity: 100, reviews: 19 },
   { name: 'Mirinda', image: '/images/mirinda-33cl.jpg', format: '33cl', price: '1,90€', popularity: 100, reviews: 14 },
-  { name: 'Ice Tea pêche', image: '/images/lipton-icetea-peche.png', format: '33cl', price: '1,90€', popularity: 100, reviews: 19 },
-  { name: 'Ice Tea pêche', image: '/images/lipton-icetea-peche.png', format: '1,5L', price: '3,30€', popularity: 95, reviews: 23 },
-  { name: 'Ice Tea pastèque menthe', image: '/images/drink-generic.png', format: '33cl', price: '1,90€', popularity: 100, reviews: 20 },
-  { name: 'Ice Tea framboise', image: '/images/drink-generic.png', format: '33cl', price: '1,90€', popularity: 95, reviews: 21 },
   { name: 'Pesie', image: '/images/pesie.jpeg', format: '33cl', price: '2,00€', popularity: null, reviews: null },
-  { name: 'Eau minérale', image: '/images/drink-generic.png', format: '33cl', price: '1,90€', popularity: 83, reviews: 6 },
   { name: '7 Up', image: '/images/7up-1.5l.jpg', format: '33cl', price: '1,90€', popularity: 100, reviews: 14 },
 ];
 
